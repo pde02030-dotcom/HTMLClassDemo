@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Canvas 기본</title>
+  <style>
+    canvas {
+      border: 1px solid #333;
+      background-color: #f0f0f0; /* 연한 회색 배경 */ 
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* 약간의 그림자 효과 */  
+      border-radius: 8px; /* 모서리 둥글게 */ 
+      margin: 20px; /* 캔버스 주변 여백 */
+      display: block; /* 블록 요소로 설정하여 아래 여백 제거 */
+      transition: box-shadow 0.3s ease; /* 호버 시 부드러운 그림자 변화 효과 */
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="300"></canvas>
+
+  <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d"); // 핵심
+
+    // 채워진 사각형
+    ctx.fillStyle = "skyblue";
+    ctx.fillRect(50, 50, 100, 80);
+
+    // 테두리만 있는 사각형
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 3;
+    ctx.strokeRect(200, 50, 120, 80);
+
+    // 사각형 지우기
+    ctx.clearRect(80, 70, 40, 40);
+
+    // 원 그리기
+    ctx.beginPath(); // 새로운 경로 시작
+    ctx.arc(100, 200, 40, 0, Math.PI * 2); // 원 그리기
+    ctx.fillStyle = "lightgreen"; // 채우기 색상
+    ctx.fill(); // 채우기
+    ctx.strokeStyle = "green"; // 테두리 색상
+    ctx.lineWidth = 2; // 테두리 두께
+    ctx.stroke(); // 테두리 그리기
+
+    // 선 그리기
+    ctx.beginPath();  // 새로운 경로 시작
+    ctx.moveTo(250, 150); // 시작점 이동
+    ctx.lineTo(350, 250); // 끝점으로 선 그리기
+    ctx.strokeStyle = "purple"; // 선 색상
+    ctx.lineWidth = 4; // 선 두께
+    ctx.stroke(); // 선 그리기
+    
+    // 텍스트 그리기
+    ctx.font = "20px Arial"; // 폰트 설정
+    ctx.fillStyle = "black"; // 텍스트 색상
+    ctx.fillText("Hello, Canvas!", 150, 280); // 텍스트 그리기
+
+    // 호버 시 그림자 효과 추가
+    canvas.addEventListener("mouseover", () => {
+      canvas.style.boxShadow = "4px 4px 12px rgba(0, 0, 0, 0.3)";
+    });
+    canvas.addEventListener("mouseout", () => {
+      canvas.style.boxShadow = "2px 2px 8px rgba(0, 0, 0, 0.2)";
+    });
+
+
+  </script>
+  <canvas id="canvas" width="400" height="300"></canvas>
+
+  <script>
+    const canvas1 = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    let x = 0;
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      ctx.arc(x, 150, 20, 0, Math.PI * 2);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+
+      x += 2;
+      if (x > canvas.width) x = 0;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
+
