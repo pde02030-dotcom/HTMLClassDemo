@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grid Template Basic</title>
+  <style>
+    .grid {
+      display: grid;
+
+      width: 800px;
+      height: 800px;
+
+      /* 열: 200px | 나머지 공간 1:2 비율 */
+      grid-template-columns: 40px 50px auto 50px 40px;     
+
+      /* 행: 고정 높이 */
+      grid-template-rows: 25% 100px auto;
+
+      gap: 10px;
+      border: 2px solid #333;
+      padding: 10px;
+    }
+
+    .item {
+      background: #e3f2fd;
+      border: 1px solid #90caf9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>grid-template-columns / rows (px + fr)</h2>
+
+  <div class="grid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+    <div class="item">14</div>
+    <div class="item">15</div>
+    <div class="item">16</div>
+    <div class="item">17</div>
+    <div class="item">18</div>
+    <div class="item">19</div>
+    <div class="item">20</div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grid Areas + Flex Main</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    /* ---------- Grid Container ---------- */
+    .grid {
+      height: 100%;
+      display: grid;
+
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 64px 1fr 56px;
+
+      grid-template-areas:
+        "header header"
+        "main   sidebar"
+        "footer footer";
+
+      gap: 12px;
+      padding: 12px;
+      background: #f1f3f5;
+    }
+
+    header  { grid-area: header; }
+    main    { grid-area: main; }
+    aside   { grid-area: sidebar; }
+    footer  { grid-area: footer; }
+
+    header, footer {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      font-weight: 600;
+    }
+
+    aside {
+      background: #ffffff;
+      padding: 16px;
+    }
+
+    /* ---------- Main (Flex) ---------- */
+    main {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      overflow: auto;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+    }
+
+    .toolbar input {
+      flex: 1;
+      height: 36px;
+    }
+
+    .summary {
+      display: flex;
+      gap: 16px;
+    }
+
+    .summary-card {
+      flex: 1;
+      padding: 16px;
+      border-radius: 10px;
+      background: #f8f9fa;
+    }
+
+    footer {
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid">
+  <header>Header</header>
+
+  <main>
+    <div class="toolbar">
+      <input type="text" placeholder="검색..." />
+      <button>추가</button>
+    </div>
+
+    <section class="summary">
+      <div class="summary-card">카드 A</div>
+      <div class="summary-card">카드 B</div>
+      <div class="summary-card">카드 C</div>
+    </section>
+  </main>
+
+  <aside>Sidebar</aside>
+  <footer>Footer</footer>
+</div>
+
+</body>
+</html>

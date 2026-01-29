@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grid justify-content Test</title>
+  <style>
+    body {
+      margin: 40px;
+      font-family: system-ui, sans-serif;
+    }
+
+    .grid {
+      display: grid;
+
+      /* 👇 grid 전체 폭보다 컨테이너가 큼 */
+      width: 800px;
+      height: 800px;
+
+      grid-template-columns: repeat(3, 150px);
+      grid-template-rows: auto;
+
+      /* 🔽 여기 값을 바꿔가며 테스트 */
+      justify-content: end; /* start | center | end | stretch | space-between | space-around | space-evenly */
+
+      gap: 10px;
+      border: 2px solid #333;
+      background: #f5f5f5;
+    }
+
+    .item {
+      background: #90caf9;
+      border: 1px solid #42a5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h3>grid justify-content 테스트</h3>
+
+<div class="grid">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+  <div class="item">8</div>
+  <div class="item">9</div>
+</div>
+
+<p>
+  justify-content 값을 변경해 보세요:<br />
+  <code>start</code>, <code>center</code>, <code>end</code>,
+  <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        .body {
+          /* box-sizing: border-box  */
+          box-sizing: content-box
+        }
+
+        *, *::before, *::after {
+          box-sizing: inherit;
+        }
+
+        /* 1. 부모 컨테이너 설정 */
+        .container {
+            /* box-sizing: border-box; */
+            display: flex;
+            flex-wrap: wrap;       /* 여러 줄로 넘어가게 설정 */
+            /* align-items: center; */
+            align-content: stretch; /* [핵심] 줄들을 세로로 꽉 채움 */
+            
+            width: 400px;  
+            height: 300px;         /* 아이템들이 늘어날 수 있는 충분한 높이 */
+            background-color: #f0f0f0;
+            padding: 2px;
+            border: 2px solid #333;
+            /* column-gap: 10px;
+            row-gap: 10px; */
+            gap: 10px 10px;
+        }
+
+        /* 2. 자식 아이템 설정 */
+        .item {
+            width: 120px;          /* 가로 크기는 고정 (3개면 줄바꿈 발생) */
+            height: auto;          /* [핵심] height를 auto로 두어야 세로로 늘어남 */
+            background-color: #ff7a59;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body class="body">
+
+    <div class="container">
+        <div class="item">100</div>
+   
+    </div>
+
+</body>
+</html>
